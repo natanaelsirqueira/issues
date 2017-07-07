@@ -4,7 +4,10 @@ defmodule Issues.Mixfile do
   def project do
     [app: :issues,
      version: "0.1.0",
+     name: "Issues",
+     source_url: "https://github.com/natanaelsirqueira/issues",
      elixir: "~> 1.4",
+     escript: escript_config(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -15,7 +18,7 @@ defmodule Issues.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger, :inets]]
   end
 
   # Dependencies can be Hex packages:
@@ -30,7 +33,13 @@ defmodule Issues.Mixfile do
   defp deps do
     [
       { :tesla, "~> 0.7" },
-      { :poison, "~> 2.2" }
+      { :poison, "~> 2.2" },
+      { :ex_doc, "~> 0.12" },
+      { :earmark, "~> 1.0", override: true }
     ]
+  end
+
+  defp escript_config do
+    [ main_module: Issues.CLI ]
   end
 end
