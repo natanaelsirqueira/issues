@@ -29,7 +29,8 @@ defmodule Issues.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :tesla, "~> 0.7" }
+      { :tesla, "~> 0.7" },
+      { :poison, "~> 2.2" }
     ]
   end
 end
