@@ -29,7 +29,7 @@ defmodule Issues.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :httpoison, "~> 0.12" }
+      { :tesla, "~> 0.7" }
     ]
   end
 end
